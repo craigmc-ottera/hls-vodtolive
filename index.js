@@ -358,6 +358,8 @@ class HLSVod {
   
           if(v.cue && v.cue.out) {
             if (v.cue.scteData) {
+              let breakDate = new Date();
+              m3u8 += "#EXT-X-PROGRAM-DATE-TIME:" + breakDate.toISOString() + "\n";
               m3u8 += '#EXT-OATCLS-SCTE35:' + v.cue.scteData + "\n";
             }
             if (v.cue.assetData) {
